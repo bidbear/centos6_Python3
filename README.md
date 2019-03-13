@@ -1,5 +1,5 @@
 # centos6_Python3
-1. 下载
+1. 下载   
 `wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tgz`
 
 2. 编译安装
@@ -11,3 +11,5 @@
 [root@myserver01 Python-3.5.2]# make && make install
 [root@myserver01 Python-3.5.2]# ln -s /usr/local/python3/bin/python3 /usr/bin/python3
 ```
+3. 验证
+`python3 --version`
