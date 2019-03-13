@@ -1,5 +1,5 @@
 # centos6_Python3
-##升级python
+## 升级python
 1. 下载   
 `wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tgz`
 
@@ -16,7 +16,7 @@
 3. 验证
 `python3 --version`
 -----------------------
-##安装pip3 
+## 安装pip3 
 1. 下载     
 wget https://bootstrap.pypa.io/get-pip.py
 
