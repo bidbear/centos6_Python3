@@ -17,10 +17,11 @@
 `python3 --version`
 -----------------------
 ## 安装pip3 
+
 1. 下载     
 wget https://bootstrap.pypa.io/get-pip.py
 
-2.然后用python解释器运行                        
+2. 然后用python解释器运行                        
 `python3 get-pip.py`                     
 报错`zipimport.ZipImportError: can’t decompress data; zlib not available   `            
 
