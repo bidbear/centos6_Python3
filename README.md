@@ -1,44 +1,76 @@
-# centos6_Python3
-## 升级python
-1. 下载   
-`wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tgz`
+# centos7_Python3_pip3_scrapy
+1. 安装依赖   
 
-2. 编译安装
+` yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel 
+
+2. 下载python3安装包  
+        
+`wget https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tgz`
+
+3. 解压   
+
+`tar -xvf Python-3.6.5.tgz `
+
+4. 安装依赖
+
+yum install zlib*
+
+
+5. 进入到解压后的文件夹编译安装
 ```
-[root@myserver01 local]# tar -zxvf Python-3.5.2.tgz
-[root@myserver01 local]# cd Python-3.5.2
-[root@myserver01 Python-3.5.2]# mkdir /usr/local/python3/     --创建新的python目录，防止覆盖老的python
-[root@myserver01 Python-3.5.2]# ./configure --prefix=/usr/local/python3/  
-[root@myserver01 Python-3.5.2]# make 
-[root@myserver01 Python-3.5.2]# make install
-[root@myserver01 Python-3.5.2]# ln -s /usr/local/python3/bin/python3 /usr/bin/python3
+cd Python-3.6.5
+./configure --prefix=/usr/local/python3 --enable-optimizations
+make && make install
 ```
-3. 验证
-`python3 --version`
------------------------
-## 安装pip3 
 
-1. 下载     
-wget https://bootstrap.pypa.io/get-pip.py
+6. 配置软连接
 
-2. 然后用python解释器运行                        
-`python3 get-pip.py`                     
-报错`zipimport.ZipImportError: can’t decompress data; zlib not available   `            
+ `ln -s /usr/local/python3/bin/python3  /usr/bin/python3`
 
-先去下载有关的包             
-yum -y install zlib*                
+7. 转到根目录
 
-然后重新编译安装python                   
+输入 python3  看到提示信息表示安装成功
 
-到你的python安装包目录下之后                
-1. `./configure `                
-2. 然后修改安装模块文件vim Modules/Setup                  
-找到#zlib zlibmodule.c -I$(prefix)/include -L$(exec_prefix)/lib -lz                   
-去掉注释                
+8. 安装setuptools
 
-zlib zlibmodule.c -I$(prefix)/include -L$(exec_prefix)/lib -lz              
+```
+wget --no-check-certificate  https://pypi.python.org/packages/source/s/setuptools/setuptools-19.6.tar.gz#md5=c607dd118eae682c44ed146367a17e26
 
-你可以在vim命令模式中输入`/查找的字符 `               
-3. `make `          
-4. `make install `           
-5. 然后重新python get-pip.py                  
+tar -zxvf setuptools-19.6.tar.gz
+
+cd setuptools-19.6
+
+python3 setup.py build
+
+python3 setup.py install
+```
+9. 设置软链接
+
+`ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3`
+
+如软链接设置错误,删除软链接命令
+
+rm -rf /usr/bin/pip3(后面/usr/bin/pip为软链接名称,切记不能加结尾/  如:/usr/bin/pip3/则表示删除软连接及真实文件)
+
+10.回到根目录
+
+cd /
+
+输入pip3 -V查看pip版本,安装成功则正确显示版本
+
+11. pip3升级
+
+`sudo pip3 install --upgrade pip`
+
+12. 安装scrapy
+
+`pip3 install scrapy`
+
+13. scrapy检查
+	未找到命令
+	
+14. 设置软连接
+`ln -s /usr/local/python3/bin/scrapy   /usr/bin/scrapy`
+15. scrapy检查
+
+成功
