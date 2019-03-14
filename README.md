@@ -1,7 +1,8 @@
 # centos7_Python3_pip3_scrapy
 1. 安装依赖   
-
-` yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel 
+```
+yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel 
+```
 
 2. 下载python3安装包  
         
